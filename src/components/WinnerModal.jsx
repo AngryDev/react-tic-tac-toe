@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Square } from "./Square"
 
 export const WinnerModal = ({winner, resetGame}) => {
@@ -17,4 +18,9 @@ export const WinnerModal = ({winner, resetGame}) => {
         </div>
       </section>    
   )
+}
+
+WinnerModal.propTypes = {
+  resetGame: PropTypes.func.isRequired,
+  winner: PropTypes.string.isRequired
 }

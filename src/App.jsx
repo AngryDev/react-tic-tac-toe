@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import confetti from "canvas-confetti"
 import { Square } from "./components/Square"
 import { TURNS } from "./constants"
 import { checkWinnerFrom, checkEndGame } from "./logic/board"
 import { WinnerModal } from "./components/WinnerModal"
 import { Tablero } from "./components/Tablero"
+
 
 function App() {
   const [board, setBoard] = useState(()=> {
@@ -50,6 +51,15 @@ function App() {
       setWinner(false)
     }
   }
+
+  useEffect(() => {
+    console.log('efecto chiquitin');
+  
+    // return () => {
+    //   second
+    // }
+  }, [])
+  
 
   return (
     <main className="board">
