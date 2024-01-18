@@ -1,30 +1,34 @@
-import PropTypes from 'prop-types';
-import { Square } from "./Square"
+import PropTypes from 'prop-types'
+import { Square } from './Square'
 
-export const Tablero = ({ board, updateBoard }) => {
-
+export const Tablero = ({ board, updateBoard, comboWinner, tipoLinea }) => {
   return (
-    <section className="game">
-    {
-      board.map((_, index) => {
-        return (
-          <Square
-            key={index}
-            index={index}
-            updateBoard={updateBoard}
-          >
-            {board[index]}
-          </Square>
-        )
-      })
-    }
-  </section>
+    <section className='game'>
+      {
+        board.map((value, index) => {
+          const isWinnerSquare = comboWinner && comboWinner.includes(index)
+
+          return (
+            <Square
+              key={index}
+              index={index}
+              updateBoard={updateBoard}
+              isWinnerSquare={isWinnerSquare}
+              combo={comboWinner}
+              tipoLinea={tipoLinea}
+            >
+              {value}
+            </Square>
+          )
+        })
+      }
+    </section>
   )
 }
 
 // Define la validación de props con PropTypes
 Tablero.propTypes = {
   updateBoard: PropTypes.func.isRequired,
-  // Otras propiedades aquí
   board: PropTypes.array.isRequired,
-};
+  comboWinner: PropTypes.array
+}
