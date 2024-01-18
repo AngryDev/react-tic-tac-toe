@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import { Square } from './components/Square'
 import { TURNS } from './constants'
@@ -57,13 +57,6 @@ function App () {
       setWinner(false)
     }
   }
-
-  useEffect(() => {
-    console.log('efecto chiquitin')
-    // return () => {
-    //   second
-    // }
-  }, [])
   return (
     <main className='board'>
       <h1>Tic Tac Toe</h1>

@@ -18,14 +18,14 @@ export const checkWinnerFrom = (boardToCheck) => {
 }
 
 export const checkEndGame = (newBoard) => {
-  /* devuelve true si no ha mas jugadas posibles, revisamos si hay un empate
-     si no hay mas espacions vacios en el tablero */
+  /* devuelve true si no hay mas jugadas posibles */
   const esEmpate = newBoard.every((square) => square !== null)
-  console.log('Empate :', esEmpate)
+  // console.log('Empate :', esEmpate)
   return esEmpate
 }
 
 const getTipoLinea = (combo) => {
+  // Selecciona la Clase Css segun el caso
   const diagonalId = [[0, 4, 8]]
   const diagonalDi = [[2, 4, 6]]
   const horizontales = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
@@ -41,5 +41,5 @@ const getTipoLinea = (combo) => {
     return 'winner-line-vert'
   }
 
-  return '' // Por defecto, no debería llegar aquí
+  return ''
 }
